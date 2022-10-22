@@ -84,10 +84,10 @@ document.querySelector("form").addEventListener("submit", (event) => {
 
 const cardHolder = document.querySelector("#card-holder")
 cardHolder.addEventListener("input", () => {
-  const ccHolder = document.querySelector(".cc-holder.value")
+  const ccHolder = document.querySelector(".cc-holder .value")
 
   ccHolder.innerText =
-    cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
+    cardHolder.value === 0 ? "FULANO DA SILVA" : cardHolder.value
 })
 
 securityCodeMasked.on("accept", () => {
@@ -102,7 +102,7 @@ function updateSecurityCode(code) {
 
 cardNumberMasked.on("accept", () => {
   const cardType = cardNumberMasked.masked.currentMask.cardtype
-  setCardNumber(cardType)
+  setCardType(cardType)
   updateCardNumber(cardNumberMasked.value)
 })
 
